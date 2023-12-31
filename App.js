@@ -26,7 +26,9 @@ const Header = () => {
 
 //const styleCard = { backgroundColor: "#f0f0f0" };
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+  console.log(props);
+  const { resName, cuisines } = props;
   return (
     <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
@@ -34,8 +36,9 @@ const RestaurantCard = () => {
         alt="res-image"
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e33e1d3ba7d6b2bb0d45e1001b731fcf"
       />
-      <h5>Burger King</h5>
-      <h6>Burgers, American</h6>
+      <h5></h5>
+      <h6>{resName}</h6>
+      <h6>{cuisines}</h6>
       <h6>4.4 stars</h6>
       <h6>38 minutes</h6>
     </div>
@@ -50,12 +53,12 @@ const Body = () => {
         <button className="search-btn">Search</button>
       </div>
       <div className="restaurant-container">
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        {/* Passing the props to a components */}
+        <RestaurantCard resName="Burger King" cuisines="Burgers, American" />
+        <RestaurantCard
+          resName="Meghana Biryani"
+          cuisines="South Indian, Fast Food"
+        />
       </div>
     </div>
   );
