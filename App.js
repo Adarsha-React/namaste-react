@@ -3,31 +3,72 @@ import ReactDOM from "react-dom/client";
 
 const Title = () => {
   return (
-    <div>
-      <h1>Namaste React🚀</h1>
+    <div className="logo">
+      <h1>Food-App</h1>
     </div>
   );
 };
 
-//Use JSX (HTML like sytax but this is not HTML inside JavaScript)
-//JSX --> will be transpiled into React.createElement using Babel
-
-//JSX ==> React.createElement ==> HTMLElement
-
-//const jsxHeading = <h1 id="heading">Hello World from JSX🚀</h1>;
-
-//JSX will sanitize the data before using it, it escapes xss attaching
-
 const Header = () => {
   return (
-    <div>
-      {Title()}
+    <div className="header">
       <Title />
-      <Title></Title>
-      <h1 id="heading">Hello world from Functional component</h1>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+//const styleCard = { backgroundColor: "#f0f0f0" };
+
+const RestaurantCard = () => {
+  return (
+    <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
+      <img
+        className="res-image"
+        alt="res-image"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e33e1d3ba7d6b2bb0d45e1001b731fcf"
+      />
+      <h5>Burger King</h5>
+      <h6>Burgers, American</h6>
+      <h6>4.4 stars</h6>
+      <h6>38 minutes</h6>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search-container">
+        <input type="text" placeholder="Seach" />
+        <button className="search-btn">Search</button>
+      </div>
+      <div className="restaurant-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
     </div>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Header />);
+root.render(<AppLayout />);
