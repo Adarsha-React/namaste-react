@@ -1,22 +1,6 @@
-/**
- *  <div id="parent">
- *      <div id="child">
- *          <h1>I'm an h1 tag </h1>
- *      </div>
- *  </div>
- */
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-/**
- *  <div id="parent">
- *      <div id="child">
- *          <h1>I'm an h1 tag </h1>
- *      </div>
- *  </div>
- */
-
-// React.createElement(Object) ==> Render function will convert it to HTML form and puts into Browser DOM
-// Use keys in react when you have list items
-// Use array in children place where you want to provide siblings
 const parent1 = React.createElement(
   "div",
   { id: "parent" },
