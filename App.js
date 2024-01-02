@@ -28,19 +28,22 @@ const Header = () => {
 //const styleCard = { backgroundColor: "#f0f0f0" };
 
 const RestaurantCard = ({ resData }) => {
+  //Object destructuring in JS
+  const { name, cuisines, avgRating, cloudinaryImageId } = resData?.info;
+  const { deliveryTime } = resData?.info?.sla;
   return (
     <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         className="res-image"
         alt="res-image"
-        src={RESTAURANT_CDN_LINK + resData?.info?.cloudinaryImageId}
+        src={RESTAURANT_CDN_LINK + cloudinaryImageId}
       />
 
       <div className="res-details">
-        <h3>{resData?.info?.name}</h3>
-        <h5 className="res-cuisines">{resData?.info?.cuisines.join(", ")}</h5>
-        <h5>{resData?.info?.avgRating} stars</h5>
-        <h5>{resData?.info?.sla?.deliveryTime} Minutes</h5>
+        <h3>{name}</h3>
+        <h5 className="res-cuisines">{cuisines.join(", ")}</h5>
+        <h5>{avgRating} stars</h5>
+        <h5>{deliveryTime} Minutes</h5>
       </div>
     </div>
   );
