@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { restaurant } from "./constants";
+import { listOfRestaurants, RESTAURANT_CDN_LINK } from "./constants";
 
 const Title = () => {
   return (
@@ -28,28 +28,26 @@ const Header = () => {
 //const styleCard = { backgroundColor: "#f0f0f0" };
 
 const RestaurantCard = ({ resData }) => {
-  console.log(resData);
-  console.log(resData?.info?.cuisines);
-
   return (
     <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         className="res-image"
         alt="res-image"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e33e1d3ba7d6b2bb0d45e1001b731fcf"
+        src={RESTAURANT_CDN_LINK + resData?.info?.cloudinaryImageId}
       />
 
       <div className="res-details">
         <h3>{resData?.info?.name}</h3>
         <h5 className="res-cuisines">{resData?.info?.cuisines.join(", ")}</h5>
-        <h5>4.4 stars</h5>
-        <h5>38 minutes</h5>
+        <h5>{resData?.info?.avgRating} stars</h5>
+        <h5>{resData?.info?.sla?.deliveryTime} Minutes</h5>
       </div>
     </div>
   );
 };
 
 const Body = () => {
+  console.log(listOfRestaurants);
   return (
     <div className="body">
       <div className="search-container">
@@ -59,7 +57,9 @@ const Body = () => {
       <div className="restaurant-container">
         {/* Passing the props to a components */}
         {/* try to use Swiggy data and pass it here for one or more cards- use array and map method */}
-        <RestaurantCard resData={restaurant} />
+        {listOfRestaurants?.map((restaurant) => (
+          <RestaurantCard resData={restaurant} key={restaurant?.info?.id} />
+        ))}
       </div>
     </div>
   );

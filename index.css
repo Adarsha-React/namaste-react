@@ -39,14 +39,15 @@
   border-radius: 10px;
 }
 
-.restaurant-card > img {
-  width: 100%;
+.restaurant-card > .res-image {
+  width: 200px;
   height: 120px;
+  border-radius: 10px;
 }
 
 .restaurant-card > .res-details {
   font-size: 11px;
-  line-height: 1em;
+  line-height: 0.9em;
 }
 .restaurant-container {
   display: flex;
