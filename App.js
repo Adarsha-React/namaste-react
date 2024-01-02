@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { restaurant } from "./constants";
 
 const Title = () => {
   return (
@@ -26,9 +27,10 @@ const Header = () => {
 
 //const styleCard = { backgroundColor: "#f0f0f0" };
 
-const RestaurantCard = (props) => {
-  console.log(props);
-  const { resName, cuisines } = props;
+const RestaurantCard = ({ resData }) => {
+  console.log(resData);
+  console.log(resData?.info?.cuisines);
+
   return (
     <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
@@ -36,11 +38,13 @@ const RestaurantCard = (props) => {
         alt="res-image"
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e33e1d3ba7d6b2bb0d45e1001b731fcf"
       />
-      <h5></h5>
-      <h6>{resName}</h6>
-      <h6>{cuisines}</h6>
-      <h6>4.4 stars</h6>
-      <h6>38 minutes</h6>
+
+      <div className="res-details">
+        <h3>{resData?.info?.name}</h3>
+        <h5 className="res-cuisines">{resData?.info?.cuisines.join(", ")}</h5>
+        <h5>4.4 stars</h5>
+        <h5>38 minutes</h5>
+      </div>
     </div>
   );
 };
@@ -54,11 +58,8 @@ const Body = () => {
       </div>
       <div className="restaurant-container">
         {/* Passing the props to a components */}
-        <RestaurantCard resName="Burger King" cuisines="Burgers, American" />
-        <RestaurantCard
-          resName="Meghana Biryani"
-          cuisines="South Indian, Fast Food"
-        />
+        {/* try to use Swiggy data and pass it here for one or more cards- use array and map method */}
+        <RestaurantCard resData={restaurant} />
       </div>
     </div>
   );

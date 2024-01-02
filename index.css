@@ -30,20 +30,24 @@
   margin: 5px;
 }
 .restaurant-card {
-  width: 180px;
+  width: 200px;
   height: 230px;
   padding: 5px;
   margin: 5px;
   border: 1px solid black;
-  line-height: 0%;
   cursor: pointer;
+  border-radius: 10px;
 }
 
-.res-image {
-  width: 180px;
+.restaurant-card > img {
+  width: 100%;
   height: 120px;
 }
 
+.restaurant-card > .res-details {
+  font-size: 11px;
+  line-height: 1em;
+}
 .restaurant-container {
   display: flex;
   flex-wrap: wrap;
