@@ -65,4 +65,7 @@
     - This is why React is fast, React will not update DOM directly. It will only creates Virtual DOM by comparing the previous ones provide it to ReactDOM which will use render() method and updates the DOM very fast.
     - Virtual DOM is just the representation of actual DOM, it is JavaScript Object.
 
-## Episode-06 - Fetch Live Data from Swiggy
+## Episode-06 - Fetch Live Data from Swiggy - Exploring the world
+
+- useEffect() Hook usages
+  - fetch() web API method used to fetch the data from Swiggy API.

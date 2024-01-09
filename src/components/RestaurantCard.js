@@ -2,6 +2,7 @@ import { RESTAURANT_CDN_LINK } from "../utils/constants";
 
 const RestaurantCard = ({ resData }) => {
   //Object destructuring in JS
+  console.log(resData);
   const { name, cuisines, avgRating, cloudinaryImageId } = resData?.info;
   const { deliveryTime } = resData?.info?.sla;
   return (
@@ -14,7 +15,7 @@ const RestaurantCard = ({ resData }) => {
 
       <div className="res-details">
         <h3>{name}</h3>
-        <h5 className="res-cuisines">{cuisines.join(", ")}</h5>
+        <p className="res-cuisines">{cuisines.join(", ")}</p>
         <h5>{avgRating} stars</h5>
         <h5>{deliveryTime} Minutes</h5>
       </div>
