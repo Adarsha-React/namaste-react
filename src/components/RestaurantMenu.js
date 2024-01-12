@@ -23,12 +23,13 @@ const RestaurantMenu = () => {
 
   if (resInfo === null) return <h3>Loading menu...</h3>; //Early Return
 
+  console.log(resInfo);
+
   const { name, city, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
 
   const { itemCards } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  console.log(itemCards);
 
   return (
     <div className="menu">

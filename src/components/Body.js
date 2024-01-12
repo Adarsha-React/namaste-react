@@ -24,6 +24,7 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+  console.log(listOfRestaurants);
 
   if (listOfRestaurants?.length === 0) {
     return <Shimmer />;

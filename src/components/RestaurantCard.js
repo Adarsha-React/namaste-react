@@ -2,7 +2,7 @@ import { RESTAURANT_CDN_LINK } from "../utils/constants";
 
 const RestaurantCard = ({ resData }) => {
   //Object destructuring in JS
-  console.log(resData);
+  // console.log(resData);
   const { name, cuisines, avgRating, cloudinaryImageId } = resData?.info;
   const { deliveryTime } = resData?.info?.sla;
   return (

@@ -69,3 +69,58 @@
 
 - useEffect() Hook usages
   - fetch() web API method used to fetch the data from Swiggy API.
+
+### Testing
+
+**_Unit Testing_**
+
+- Testing single component separately , for example Header component (one/small unit of any application)
+
+  **_Integration Testing_**
+
+- Testing two or more components which are connected, where one component will affect other components if something changes in parent component
+
+  **_E2E (end to end) Testing_**
+
+- from start to end - user landing onto the page, entering user id and password then entering into the main page then doing some actions finally logging off.
+
+**_React Testing Library_** - **jest**
+
+- React Testing Library uses jest to perform testing in React application
+- jest internally uses Babel
+
+**_Steps_**
+
+- Installed React Testing Library (npm install --save-dev jest)
+- Installed jest (npm install --save-dev jest)
+- Installed babel dependencies (npm install --save-dev babel-jest @babel/core @babel/preset-env)
+- Added babel.config.js configuration (from "jest" website)
+  - After adding this configuration, it will conflicts with parcel-babel configuration which was already present with bundler parcel.
+- So, add .parcelrc file with proper configuration to disable default babel configuration inside parcel.
+
+  - path: goto parceljs.org -> get started -> languages (JavaScript) -> Babel
+
+- Jest configuration
+  - npx jest --init
+    - jsdom (browser-like) - this is where we test the application, it provides all super powers of browser.
+- (Check this in React Testing Library)If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately.
+  - npm install --save-dev jest-environment-jsdom
+
+**_ready to test now_**
+
+- npm run test (check this in package.json (scripts))
+  - You might get the message that, no tests found.
+- pattern testing files -
+
+  - componentName.test.js/.ts
+  - componentName.spec.js/.ts
+  - Create a folder "**test**" then add normal files inside this folder with ComponentName.js/ts
+  - These files are tracked by jest and execute these test cases
+    **_Information from jest when you run the tests: dunder method test: npm run test_**
+  - testMatch: **/**tests**/**/_.[jt]s?(x), \*\*/?(_.)+(spec|test).[tj]s?(x) - 0 matches
+  - testPathIgnorePatterns: \\node_modules\\ - 24 matches
+
+- written one JavaScript test case to test sum of two numbers.
+  - sum.test.js
+  - test() function will be used to execute the test cases
+  - It accepts two parameters, 1. Description of the test case 2. function to write logic for testing
