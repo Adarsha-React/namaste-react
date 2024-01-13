@@ -122,5 +122,15 @@
 
 - written one JavaScript test case to test sum of two numbers.
   - sum.test.js
-  - test() function will be used to execute the test cases
+  - test() function will be used to execute the test cases - we can write "it" instead of "test" - this is also valid
   - It accepts two parameters, 1. Description of the test case 2. function to write logic for testing
+- Unit testing
+  - Testing sinlge component in the whole application, for example Contact component
+  - Steps:
+    - 1st render the compnent into jsdom using render method
+    - "screen" object can be used to get the details of what all things rendered.
+    - we might encouter with "jsx" not understood by jest, so we need to install below library
+      - npm install --save-dev @babel/preset-react
+      - update the babel.config.js file with new preset-react
+      - again, we will encounter with screen object methods, toBeInTheDocument
+        - Install - npm install -D @testing-library/jest-dom

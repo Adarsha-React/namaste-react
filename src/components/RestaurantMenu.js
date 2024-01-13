@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { MENU_API } from "../utils/constants";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem, removeItem } from "./cartSlice";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -19,6 +21,15 @@ const RestaurantMenu = () => {
     const json = await data.json();
 
     setResInfo(json.data);
+  };
+
+  const dispatch = useDispatch();
+  const handleAddItems = (item) => {
+    dispatch(addItem(item));
+  };
+
+  const handleRemoveItems = (item) => {
+    dispatch(removeItem(item));
   };
 
   if (resInfo === null) return <h3>Loading menu...</h3>; //Early Return
@@ -40,12 +51,23 @@ const RestaurantMenu = () => {
       <h3>Menu</h3>
       <ul>
         {itemCards?.map((item) => (
-          <li key={item?.card?.info?.id}>
-            {item?.card?.info?.name} -{" "}
-            {item?.card?.info?.price
-              ? item?.card?.info?.price / 100
-              : item?.card?.info?.defaultPrice / 100}
-          </li>
+          <div key={item?.card?.info?.id}>
+            <li>
+              {item?.card?.info?.name} -
+              {item?.card?.info?.price
+                ? item?.card?.info?.price / 100
+                : item?.card?.info?.defaultPrice / 100}
+              <button className="cart-btn" onClick={() => handleAddItems(item)}>
+                Add
+              </button>
+              <button
+                className="cart-btn"
+                onClick={() => handleRemoveItems(item)}
+              >
+                Remove
+              </button>
+            </li>
+          </div>
         ))}
       </ul>
     </div>

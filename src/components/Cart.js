@@ -1,7 +1,16 @@
+import { useDispatch } from "react-redux";
+import { clearCart } from "./cartSlice";
+
 const Cart = () => {
+  const dispatch = useDispatch();
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
   return (
     <div>
-      <h1>Cart page - we will work on this later</h1>
+      <button onClick={handleClearCart}>Clear Cart</button>
     </div>
   );
 };
