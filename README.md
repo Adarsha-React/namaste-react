@@ -126,7 +126,7 @@
   - It accepts two parameters, 1. Description of the test case 2. function to write logic for testing
 - Unit testing
   - Testing sinlge component in the whole application, for example Contact component
-  - Steps:
+  - **_Steps:_**
     - 1st render the compnent into jsdom using render method
     - "screen" object can be used to get the details of what all things rendered.
     - we might encouter with "jsx" not understood by jest, so we need to install below library
@@ -134,3 +134,12 @@
       - update the babel.config.js file with new preset-react
       - again, we will encounter with screen object methods, toBeInTheDocument
         - Install - npm install -D @testing-library/jest-dom
+- ## Testing while passing the props
+  - Try to create mockdata and import that into where we test then pass it
+  - Render step
+    - copy the data exactly what RestaurantCard received from Body component and keep that in mockData
+    - pass the mock data while rendering the component in step 1
+  - Querying
+    - use screen function and get the reference of some data
+  - Expect
+    - use expect method to check the expected data loaded onto DOM
